@@ -6,6 +6,9 @@ import builderPattern.director.Director;
 import builderPattern.models.Book;
 import builderPattern.models.Report;
 import singletonPattern.ConfigManager;
+import strategyPattern.ExportStrategy;
+import strategyPattern.HtmlExportStrategy;
+import strategyPattern.PdfExportStrategy;
 
 public class Client {
     public static void main(String[] args) {
@@ -20,15 +23,15 @@ public class Client {
         director.constructBook(bookBuilder);
         Book book = bookBuilder.getResult();
 
-        System.out.println(report);
-        System.out.println();
-        System.out.println(book);
-
         //Singleton pattern
         ConfigManager configManager = ConfigManager.getInstance();
         configManager.setFont("Times New Roman");
         configManager.setTextSize(16.0);
 
-
+        //Strategy pattern
+        ExportStrategy htmlExportStrategy = new HtmlExportStrategy();
+        htmlExportStrategy.export(report);
+        ExportStrategy pdfExportStrategy = new PdfExportStrategy();
+        pdfExportStrategy.export(book);
     }
 }

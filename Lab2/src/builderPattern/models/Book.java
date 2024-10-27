@@ -1,6 +1,6 @@
 package builderPattern.models;
 
-public class Book {
+public class Book implements Exportable{
     private final String title;
     private final String body;
     private final int nrOfPages;
