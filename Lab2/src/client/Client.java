@@ -1,37 +1,30 @@
 package client;
 
-import domain.builder.BookBuilder;
-import domain.builder.ReportBuilder;
-import domain.director.Director;
 import domain.models.Book;
 import domain.models.Report;
-import singleton.ConfigManager;
+import facade.DocumentFacade;
+import singleton.ConfigManagerProxy;
 import strategy.ExportStrategy;
 import strategy.HtmlExportStrategy;
 import strategy.PdfExportStrategy;
 
 public class Client {
     public static void main(String[] args) {
-        //Builder pattern
-        Director director = new Director();
+        //Builder pattern & Facade pattern
+        DocumentFacade documentFacade = new DocumentFacade();
 
-        ReportBuilder reportBuilder = new ReportBuilder();
-        director.constructReport(reportBuilder);
-        Report report = reportBuilder.getResult();
+        Report report = documentFacade.generateReport();
+        Book book = documentFacade.generateBook();
 
-        BookBuilder bookBuilder = new BookBuilder();
-        director.constructBook(bookBuilder);
-        Book book = bookBuilder.getResult();
+        //Singleton pattern & Proxy pattern
+        ConfigManagerProxy configManagerProxy = new ConfigManagerProxy();
+        configManagerProxy.setFont("Times New Roman");
+        configManagerProxy.setTextSize(16.0);
 
-        //Singleton pattern
-        ConfigManager configManager = ConfigManager.getInstance();
-        configManager.setFont("Times New Roman");
-        configManager.setTextSize(16.0);
-
-        //Strategy pattern
+        //Strategy pattern & Facade pattern
         ExportStrategy htmlExportStrategy = new HtmlExportStrategy();
-        htmlExportStrategy.export(report);
+        documentFacade.exportDocument(report, htmlExportStrategy);
         ExportStrategy pdfExportStrategy = new PdfExportStrategy();
-        pdfExportStrategy.export(book);
+        documentFacade.exportDocument(book,pdfExportStrategy);
     }
 }
