@@ -1,4 +1,4 @@
-package builderPattern.models;
+package domain.models;
 
 public interface Exportable {
     String getTitle();

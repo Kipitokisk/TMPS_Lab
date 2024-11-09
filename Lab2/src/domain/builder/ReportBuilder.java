@@ -1,6 +1,6 @@
-package builderPattern.builder;
+package domain.builder;
 
-import builderPattern.models.Report;
+import domain.models.Report;
 public class ReportBuilder implements Builder{
     private String title;
     private String body;

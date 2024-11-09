@@ -1,4 +1,4 @@
-package builderPattern.builder;
+package domain.builder;
 
 public interface Builder {
     void setTitle(String title);

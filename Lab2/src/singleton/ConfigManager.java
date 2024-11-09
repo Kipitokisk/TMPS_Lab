@@ -1,4 +1,4 @@
-package singletonPattern;
+package singleton;
 
 public class ConfigManager {
     private static ConfigManager instance;

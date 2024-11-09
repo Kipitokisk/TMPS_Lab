@@ -1,6 +1,6 @@
-package strategyPattern;
+package strategy;
 
-import builderPattern.models.Exportable;
+import domain.models.Exportable;
 
 public interface ExportStrategy {
     void export(Exportable exportable);

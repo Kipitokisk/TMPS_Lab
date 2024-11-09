@@ -1,6 +1,6 @@
-package builderPattern.builder;
+package domain.builder;
 
-import builderPattern.models.Book;
+import domain.models.Book;
 public class BookBuilder implements Builder{
     private String title;
     private String body;

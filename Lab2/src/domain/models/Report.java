@@ -1,12 +1,12 @@
-package builderPattern.models;
+package domain.models;
 
-public class Book implements Exportable{
+public class Report implements Exportable{
     private final String title;
     private final String body;
     private final int nrOfPages;
     private final String author;
 
-    public Book(String title, String body, int nrOfPages, String author) {
+    public Report(String title, String body, int nrOfPages, String author) {
         this.title = title;
         this.body = body;
         this.nrOfPages = nrOfPages;
@@ -31,7 +31,7 @@ public class Book implements Exportable{
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "Report{" +
                 "title='" + title + '\'' +
                 ", body='" + body + '\'' +
                 ", nrOfPages=" + nrOfPages +

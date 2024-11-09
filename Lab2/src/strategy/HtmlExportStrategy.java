@@ -1,6 +1,6 @@
-package strategyPattern;
+package strategy;
 
-import builderPattern.models.Exportable;
+import domain.models.Exportable;
 
 public class HtmlExportStrategy implements ExportStrategy{
     public void export(Exportable exportable) {

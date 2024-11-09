@@ -1,6 +1,6 @@
-package builderPattern.director;
+package domain.director;
 
-import builderPattern.builder.Builder;
+import domain.builder.Builder;
 
 public class Director {
     public void constructReport(Builder builder) {

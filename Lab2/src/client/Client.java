@@ -1,14 +1,14 @@
 package client;
 
-import builderPattern.builder.BookBuilder;
-import builderPattern.builder.ReportBuilder;
-import builderPattern.director.Director;
-import builderPattern.models.Book;
-import builderPattern.models.Report;
-import singletonPattern.ConfigManager;
-import strategyPattern.ExportStrategy;
-import strategyPattern.HtmlExportStrategy;
-import strategyPattern.PdfExportStrategy;
+import domain.builder.BookBuilder;
+import domain.builder.ReportBuilder;
+import domain.director.Director;
+import domain.models.Book;
+import domain.models.Report;
+import singleton.ConfigManager;
+import strategy.ExportStrategy;
+import strategy.HtmlExportStrategy;
+import strategy.PdfExportStrategy;
 
 public class Client {
     public static void main(String[] args) {
