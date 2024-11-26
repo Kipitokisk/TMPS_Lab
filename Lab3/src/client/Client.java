@@ -1,6 +1,8 @@
 package client;
 
 import domain.models.Book;
+import domain.models.Exportable;
+import domain.models.LoggingObserver;
 import domain.models.Report;
 import facade.DocumentFacade;
 import singleton.ConfigManagerProxy;
@@ -15,6 +17,16 @@ public class Client {
 
         Report report = documentFacade.generateReport();
         Book book = documentFacade.generateBook();
+
+        //Observer pattern
+        LoggingObserver loggingObserver = new LoggingObserver();
+        report.addObserver(loggingObserver);
+        book.addObserver(loggingObserver);
+
+        Exportable section = new Report("Section part in a report", "Details of section", 2, "John Doe");
+        report.add(section);
+        report.remove(section);
+
 
         //Singleton pattern & Proxy pattern
         ConfigManagerProxy configManagerProxy = new ConfigManagerProxy();
